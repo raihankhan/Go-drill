@@ -7,10 +7,15 @@ import (
 
 func main() {
 	q := queue.New()
-	q = q.Push(3, "dass", 4)
-	q.Pop()
-	fmt.Println(q.Size())
-	fmt.Println(q.Get())
+	q.Push(3, "dass", 4)
 	fmt.Println(q.Front())
+	fmt.Println(q.Get())
+
+	q.Pop()
+	fmt.Println(q.Front())
+	fmt.Println(q.Get())
+
+	q.Clear()
+	fmt.Println(q.Size())
 
 }
