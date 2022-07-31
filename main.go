@@ -7,6 +7,10 @@ import (
 
 func main() {
 	q := queue.New()
-	q.Insert(3, "dass", 4)
-	fmt.Println(q)
+	q = q.Push(3, "dass", 4)
+	q.Pop()
+	fmt.Println(q.Size())
+	fmt.Println(q.Get())
+	fmt.Println(q.Front())
+
 }
