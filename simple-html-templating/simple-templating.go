@@ -11,13 +11,21 @@ type Page struct {
 	Title, Content string
 }
 
+// # Caching parsed templates
+// store the ready-to-use template in a variable, and repeatedly use
+// the same template each time you need to generate the output
+var simpleTemplate *template.Template
+
+func init() {
+	simpleTemplate = template.Must(template.ParseFiles("simple.html"))
+}
+
 func displayPage(w http.ResponseWriter, r *http.Request) {
 	simplePage := Page{
 		Title:   "Portfolio",
 		Content: "Hi! I am Raihan. I'm a software Engineer.",
 	}
-	t := template.Must(template.ParseFiles("simple.html"))
-	err := t.Execute(w, simplePage)
+	err := simpleTemplate.Execute(w, simplePage)
 	if err != nil {
 		log.Println(err, "Failed to execute html file")
 	}
