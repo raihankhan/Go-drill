@@ -1,3 +1,3 @@
-module github.com/raihankhan/Go-drill
+module github.com/raihankhan/golab
 
-go 1.18
+go 1.22
